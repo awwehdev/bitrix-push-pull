@@ -1,0 +1,31 @@
+{
+   "servers": [
+      {
+         "name": "sub-8011",
+         "port": 8011,
+         "hostname": "0.0.0.0",
+         "backlog": 1024,
+         "routes": {
+            "sub": "/bitrix/subws/"
+         }
+      }
+   ],
+   "clusterMode": true,
+   "processUniqueId": "sub-8011",
+   "storage": {
+      "type": "redis",
+      "socket": "/var/run/redis/redis-server.sock",
+      "messageTLL": 86400,
+      "channelTLL": 86400,
+      "onlineTLL": 120,
+      "onlineDelta": 10
+   },
+   "security": {
+      "key": ""
+   },
+    "debug": {
+        "folderName": "/var/log/push-server",
+        "ip": ["127.0.0.1","10.0.0.0/8"],
+        "trustProxy": true
+    }
+}

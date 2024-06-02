@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "response.proto";
+import "receiver.proto";
+
+option php_namespace = "Bitrix\\Pull\\Protobuf";
+
+message NotificationBatch
+{
+    repeated Notification notifications = 1;
+}
+
+message Notification
+{
+    oneof command
+    {
+        IPCMessages ipcMessages = 1;
+    }
+}
+
+message IPCMessages
+{
+    repeated IPCMessage messages = 1;
+}
+
+message IPCMessage
+{
+    repeated Receiver receivers = 1;
+    bytes outgoingMessageId = 2;
+    OutgoingMessage outgoingMessage = 3;
+}

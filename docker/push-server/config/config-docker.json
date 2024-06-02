@@ -1,0 +1,24 @@
+{
+	"servers": [
+		{
+			"name": "Http Server",
+			"port": 1337,
+			"backlog": 20000,
+			"routes": {
+				"pub": "/bitrix/pub/",
+				"sub": "/bitrix/sub/",
+				"stat": "/bitrix/server-stat/",
+				"rest": "/bitrix/rest/"
+			}
+		}
+	],
+
+	"storage": {
+		"host": "redis",
+		"type": "redis",
+		"messageTTL": 86400,
+		"channelTTL": 86400,
+		"onlineTTL": 120,
+		"onlineDelta": 10
+	}
+}

@@ -1,0 +1,20 @@
+---
+services:
+    app:
+        build: ./docker/
+        environment:
+            TZ: UTC
+        stdin_open: true
+        tty: true
+        restart: unless-stopped
+        volumes:
+            - ./docker/etc/default/empush-server:/etc/default/push-server
+            - ./docker/etc/push-server:/etc/configs
+            - ./docker/etc/init.d/push-server-multi:/etc/init.d/push-server-multi
+            - ./docker/push-server:/etc/push-server
+            - ./docker/entrypoint.sh:/entrypoint.sh
+        command: /entrypoint.sh
+        ports:
+            - 9010:9010
+            - 8010:8010
+

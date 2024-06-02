@@ -1,0 +1,41 @@
+{
+   "servers": [
+      {
+         "name": "pub-9010",
+         "port": 9010,
+         "hostname": "0.0.0.0",
+         "backlog": 1024,
+         "routes": {
+            "pub": "/bitrix/pub/",
+            "stat": "/server-stat/",
+                "rest": "/bitrix/rest/"
+         }
+      }
+   ],
+   "publishMode": true,
+   "processUniqueId": "pub-9010",
+   "clusterMode": true,
+   "storage": {
+      "type": "redis",
+      "socket": "/var/run/redis/redis-server.sock",
+      "messageTLL": 86400,
+      "channelTLL": 86400,
+      "onlineTLL": 120,
+      "onlineDelta": 10
+   },
+   "security": {
+      "key": "qweqwe"
+   },
+    "limits": {
+        "maxPayload": 1048576,
+        "maxConnPerChannel": 100,
+        "maxMessagesPerRequest": 100,
+        "maxChannelsPerRequest": 100,
+        "maxRequestsPerSecond": 50
+    },
+    "debug": {
+        "folderName": "/var/log/push-server",
+        "ip": ["127.0.0.1","10.0.0.0/8"],
+        "trustProxy": true
+    }
+}
